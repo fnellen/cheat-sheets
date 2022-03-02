@@ -26,12 +26,12 @@ openssl req -new -sha256 -subj "/CN=yourcn" -key cert-key.pem -out cert.csr
 3. Create a `extfile` with all the alternative names
 ```bash
 echo "authorityKeyIdentifier=keyid,issuer
-    basicConstraints=CA:FALSE
-    keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-    subjectAltName = @alt_names
-    
-    [alt_names]
-    DNS.1 = %%DOMAIN%%" >> extfile.cnf
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = %%DOMAIN%%" >> extfile.cnf
 ```
 ```bash
 # optional
